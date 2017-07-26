@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+</body>
+<script>
+var Sugam = {name:"Sugam",number:99999999999,address:"Indore",showMe:function(){
+    console.log(this.name);
+}};
+Sugam.showMe();
+
+function person(name,number,address) {
+    this.name=name;
+    this.number=number;
+    this.address=address;
+}
+
+
+
+var Akhlesh = new person("Akhlesh",8888888888,"Indore");
+Akhlesh.age=25;
+console.log(Akhlesh);
+var SugamS = Sugam;
+var Akhlesh1 = Object.create(Sugam);
+SugamS.name = "Sugam Sahu";
+Akhlesh1.number = 000000000000;
+console.log(Sugam);
+
+
+
+
+</script>
+
+</html>

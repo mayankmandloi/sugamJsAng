@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+Hello I am Sugam
+<div class="" id="tt">
+
+</div>
+</body>
+<script>
+
+function person(name,number,address) {
+    this.name=name;
+    this.number=number;
+    this.address=address;
+}
+person();
+var Sugam = new person("Sugam",9999999999,"Indore");
+document.getElementById("tt").innerHTML=Sugam.name +" "+ Sugam.number+ " "+Sugam.address;
+document.write("<br>");
+var Sugam = new person(window.prompt("please enter your name"),window.prompt("please enter your number"),window.prompt("please enter your address"));
+
+document.write(Sugam.name +" "+ Sugam.number+ " "+Sugam.address);
+
+
+
+</script>
+
+</html>

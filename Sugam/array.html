@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="array.html?q=name">Name</a>
+    <a href="array.html?q=number">Number</a>
+    <div class="" id="Sugam">
+
+    </div>
+  </body>
+  <script type="text/javascript">
+var arr = [{name:"Sugam",number:9999999990},{name:"Mayank",number:9999999991},{name:"Nirupama",number:9999999992},{name:"Akilesh",number:9999999993},{name:"Aruna",number:9999999994},{name:"Pratibha",number:9999999995},{name:"Amrish",number:9999999996}];
+
+
+
+var input=window.location.href.slice(window.location.href.indexOf("?"));
+
+
+
+input = input.slice(input.indexOf("=")+1);
+
+
+for (var i in arr) {
+
+  if(typeof arr[i]=="function")
+  {
+    arr[i]();
+  }
+  else {
+    document.getElementById("Sugam").innerHTML =document.getElementById("Sugam").innerHTML+"</br>"+input+":-  "+arr[i][input]+"</br>";
+  }
+}
+
+  </script>
+</html>
