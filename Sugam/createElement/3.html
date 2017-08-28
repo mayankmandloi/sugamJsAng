@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="container">
+
+
+
+      <button class="btn btn-primary" type="button" name="button" onclick="add()">Add</button>
+      <!-- <input type="text" name="" value="" id="sugam"> -->
+      <div class="row" id="main">
+
+      </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+function add() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var book = JSON.parse(this.responseText);
+        add1(book.Books);
+    }
+  };
+  xhttp.open("GET", "http://it-ebooks-api.info/v1/search/java", true);
+  xhttp.send();
+}
+
+function add1(arr) {
+
+  for (var i = 0; i < arr.length; i++) {
+    var ele = document.getElementById("main");
+    //-------------------------------------------------------
+    var main = document.createElement("div");
+    main.style.textAlign="center";
+    //----------------------------------------------
+
+    var head = document.createElement("h2");
+    head.innerHTML=arr[i].Title;
+    main.appendChild(head)
+    //-----------------------------------------------------
+    var para = document.createElement("p");
+    para.innerHTML = "Description "+arr[i].Description;
+
+    //------------------------------------------------------
+    var imgpara = document.createElement("img");
+    imgpara.src = arr[i].Image;
+    main.appendChild(imgpara)
+    //-------------------------------------------------------
+    main.appendChild(para);
+    main.className="col-xs-4";
+    if(i>0&&i%3==0)
+    {
+      main.style.clear="left";
+    }
+    main.style.border="1px solid black";
+
+    ele.appendChild(main);
+    /*if(i>0&&i%2==1)
+    {
+      var tt=document.createElement("div");
+      tt.className="clearfix";
+      ele.appendChild(tt);
+    }
+  }*/
+
+
+}}
+    </script>
+  </body>
+</html>
